@@ -1,0 +1,25 @@
+quarkus:
+  datasource:
+    username: sa
+    password:
+    jdbc:
+      url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
+
+  transaction-manager:
+    object-store:
+      database-platform: org.hibernate.dialect.H2Dialect
+
+
+info:
+  name: employee_api
+  description: ${app.description}
+
+app:
+  description: ${app.description}
+  version: ${app.version}
+  server:
+    url: ${app.server.url}
